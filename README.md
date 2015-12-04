@@ -5,7 +5,7 @@
 
 <h5>How to Run</h5>
 Initialize by the dataG.bat
-but also do if your ruby are >= 2.0.0 or you are not using RailsInstaller ( The <h6 id="frase">.lnk</h6> follow this too! ).
+but also do if your ruby are >= 2.0.0 or you are not using RailsInstaller ( The <u>.lnk</u> follow this too! ).
 
 <h5>How Controll</h5>
 
