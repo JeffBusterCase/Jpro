@@ -25,7 +25,7 @@ class DataAcc
     $file_name2 = @@file_name
     $nome_da_conta = $file_name2
 
-    @@time_cep2 = "D:\\Users\\Aderson\\Desktop\\Meus programas\\Jpro"
+    @@time_cep2 = File.expand_path(File.dirname(__FILE__))
     @@file_socket = "#{@@time_cep2}\\Accounts\\" + $nome_da_conta + "\\dados da conta\\" + $nome_da_conta + ".yml"
 
     #para password e account name
@@ -81,9 +81,9 @@ class DataAcc
   #retornar nomes dos textos que tem na caixa
   def return_arr_txts
     @doc = @@info_past[1]
-	  if @doc["doc"].empty?
-	    return ["0"]
-	  else
+    if @doc["doc"].empty?
+      return ["0"]
+    else
       return @doc["doc"] #retorna os nomes dentro de um Array
     end
   end
@@ -91,15 +91,15 @@ class DataAcc
   #adicionar textos
   def add_new_txt(new_txt_name, really_text)
     @really_text = really_text #já é string
-	  $new_txt_name = new_txt_name
+    $new_txt_name = new_txt_name
 
-    @this_here = "D:\\Users\\Aderson\\Desktop\\Meus programas\\Jpro"
+    @this_here = File.expand_path(File.dirname(__FILE__))
 
     $other_here = $nome_da_conta
 
 
 
-	  file = File.new(((@this_here + "\\Accounts\\" + name_return + "\\textos\\guardados\\" + $new_txt_name + ".dgtxt").to_s), "w")
+    file = File.new(((@this_here + "\\Accounts\\" + name_return + "\\textos\\guardados\\" + $new_txt_name + ".dgtxt").to_s), "w")
     file.close
 
 
@@ -107,7 +107,7 @@ class DataAcc
       file << @really_text
     end
     begin
-	    @doc["doc"] << $new_txt_name
+      @doc["doc"] << $new_txt_name
     rescue
       sleep 0.70
       @doc["doc"] << $new_txt_name
@@ -116,9 +116,9 @@ class DataAcc
         @doc["doc"] << $new_txt_name
       end
     end
-	  File.open(@@file_socket, "w") do |file|
-	    file.puts YAML.dump(@@info_past)
-	  end
+    File.open(@@file_socket, "w") do |file|
+      file.puts YAML.dump(@@info_past)
+    end
   end
 
   #retornar o texto selecionado
@@ -131,7 +131,7 @@ class DataAcc
 end
 
 =begin
-                Exemplo:
+                Example:
 
 
 				conta_now = DataAcc.new(".\\example.yml")
