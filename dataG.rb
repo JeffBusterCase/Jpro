@@ -172,16 +172,16 @@ def enter
             $y += 1
             while $y > 0 do
               send_information($acc)
-              puts "                                   Aperte #{red('enter')} para sair"
-              puts "                            Escreva #{black('ctext')} para Criar um texto"
-              puts "                            Escreva #{black('read')} para ler um texto"
+              puts "                            Write #{red('end')} para sair"
+              puts "                            Write #{black('ctext')} para Criar um texto"
+              puts "                            Write #{black('read')} para ler um texto"
               7.times {puts ""}
               puts "               Entrou como #{black(acc_data)}."
               sleep 0.005
               print "----------------------------->"
               bl = gets.chomp
 			        bl.capitalize!
-              if bl == "End" || ""
+              if bl == "End"
                 send_information($acc, "saida")
                 system 'cls'
                 $y -= 1
