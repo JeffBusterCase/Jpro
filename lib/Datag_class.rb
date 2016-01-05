@@ -25,8 +25,8 @@ class DataAcc
     $file_name2 = @@file_name
     $nome_da_conta = $file_name2
 
-    @@time_cep2 = ( File.expand_path(File.dirname(__FILE__)) ).to_s.match /(.*?)ter/
-    @@time_cep2 = @@time_cep2[0]
+    @@time_cep2 = ( File.expand_path(File.dirname(__FILE__)) ).to_s.match /(.*?)lib/
+    @@time_cep2 = @@time_cep2[1]
     @@file_socket = "#{@@time_cep2}\\Accounts\\" + $nome_da_conta + "\\dados da conta\\" + $nome_da_conta + ".yml"
 
     #para password e account name
@@ -94,8 +94,8 @@ class DataAcc
     @really_text = really_text #já é string
     $new_txt_name = new_txt_name
 
-    @this_here = ( File.expand_path(File.dirname(__FILE__)) ).to_s.match /(.*?)ter/
-    @this_here = @this_here[0]
+    @this_here = ( File.expand_path(File.dirname(__FILE__)) ).to_s.match /(.*?)lib/
+    @this_here = @this_here[1]
 
     $other_here = $nome_da_conta
 
