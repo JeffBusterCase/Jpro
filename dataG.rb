@@ -1,22 +1,22 @@
 ﻿# encoding: UTF-8
 
-require ".\\lib\\Datag_class.rb"
+require "./lib/Datag_class"
 
-require ".\\lib\\DG_MAIN.rb"
+require "./lib/DG_MAIN"
 
-require ".\\lib\\guard_error.rb"
+require "./lib/guard_error"
 
-require ".\\lib\\createTxt.rb"
+require "./lib/createTxt"
 
-require ".\\lib\\readTxt.rb"
+require "./lib/readTxt"
 
-require ".\\lib\\createAccount.rb"
+require "./lib/createAccount"
 
 require 'yaml'
 
-require '.\organizer.rb'
+require './organizer'
 
-require ".\\lib\\cortez.rb"
+require "./lib/cortez"
 
 
 
@@ -35,8 +35,8 @@ $t = true
 
 ##^^^^^^
 
-system 'color f9'
-system 'cls'
+system 'color f9'#MS-DOS
+system 'cls'#MS-DOS
 
 
 
@@ -52,15 +52,15 @@ system 'cls'
 while $t
   puts "                              (Aperte: #{black("Sair")} para Sair)      "
   4.times{puts ""}
-  puts "                       Entrar em uma conta existente: #{black("enter")}"
-  puts "                   #{green('|        |        |        |        |        |')}"
-  puts "                       Criar conta: #{black("criar")}"
-  print "                               "
+  print "\n                       Entrar em uma conta existente: #{black("enter")}",
+        "\n                   #{green('|        |        |        |        |        |')}",
+        "\n                       Criar conta: #{black("criar")}",
+        "                               "
   pedido = gets.chomp
   pedido.capitalize!
   case pedido
   when "Enter"
-    system 'cls'
+    system 'cls'#MS-DOS
     $forEnter = true
     while $forEnter
       begin
@@ -70,7 +70,7 @@ while $t
         system 'cls'
         8.times {puts ''}
 		    $error_name = "error_" << rand(100).to_s << " " << rand(100).to_s
-        file_error_name = (".\\lib\\erros\\" << $error_name << ".txt")
+        file_error_name = ("./lib/erros/" << $error_name << ".txt")
         grand = File.new(file_error_name, "w")
 	      grand.close
 
@@ -82,28 +82,27 @@ while $t
 		       file << "\n"
 		       file <<  $!.message
 		     end
-        puts "                     grande erro: " + $error_name
-        puts '\n\n\n                            Sua conta deve ser invalida!'
+        puts ("                     grande erro: " + $error_name),
+              "\n                            Sua conta deve ser invalida!"
         sleep 2
-        system 'cls'
+        system 'cls'#MS-DOS
       end
       $forEnter = false
     end
   when "Criar"
-    system 'cls'
-    $h += 1
-    while $h > 0 do
+    system 'cls'#MS-DOS
+    loop do
       create
-      $h -= 1
+      break
     end
   when "Sair"
-    system 'cls'
+    system 'cls'#MS-DOS
     $t = false
   else
-    system 'cls'
-    9.times {puts ""}
+    system 'cls'#MS-DOS
+    6.times {puts ""}
     puts "                  Ecreva Enter ou Sair"
-    sleep 1
-    system 'cls'
+    sleep 0.89
+    system 'cls'#MS-DOS
   end
 end
