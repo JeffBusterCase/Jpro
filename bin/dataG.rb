@@ -55,7 +55,7 @@ $os.clear#clear the terminal
 
 while $t
   print "Hacked by #{Config.load('hackBy').capitalize.sub('_', " ").sub('b', "B")}",
-        "(#{Config.load('hackByTag')})\n"
+        "(#{cian(Config.load('hackByTag'))})\n"
   puts "(Press: #{whi("Sair")} to exit)",
        "DataG Version 2.0.53"
   3.times{puts ""}
