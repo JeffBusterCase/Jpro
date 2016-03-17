@@ -9,75 +9,69 @@ require 'yaml'
 
 class Monitoramento
   def initialize
-    $pasta = ".\\Accounts"
+    $pasta = "./Accounts"
   end
 
   #Criar interação com o usuario.(com Threads)
   #tipo quando digitar "hist" mostrar o histórico inteiro de entradas e saidas
   # ou "hist_e" para só entradas e "hist_s" só de saidas.
   def hist
-    $hist = YAML.load(File.open("dgm_Database.yml"))
-    return $hist[0]
+    ( YAML.load(File.open("dgm_Database.yml")) )[0]
   end
 
   def verific
     #verificar todos os dados de todas as pastas
-    $arr_folder = YAML.load(File.open("dgm_Database.yml"))
-    return $arr_folder[1]
+    ( YAML.load(File.open("dgm_Database.yml")) )[1]
   end
 
 end
-a = 1
-system 'cls'
+
+system 'cls' #MS-DOS
 thefirst = Thread.new {
-while a > 0 do
-  test1 = Monitoramento.new;
-  test1 = test1.verific
+loop do
+  test1 = Monitoramento.new().verific;
   $stdout.puts test1
-  b = 0
-  while b < 1 do
+  usedYet = true
+  while usedYet do
     test2 = Monitoramento.new;
     sleep 0.90
     test2 = test2.verific
-    if test2 != test1
-      b += 1
-    end
+    usedYet = false if test2 != test1
   end
 end
 }
 
 
 print "Monitoramento iniciado:\n"
-sysuser = 0
-while sysuser < 1 do
-  thefirst
+running = true
+while running do
+  thefirst #Start Thread
   sleep 0.40
   print "\nDgm:functions:>"
   user = gets.chomp
   uu = user
   case uu.capitalize!
   when "Hist"
-    por_enquanto = Monitoramento.new;
-    puts por_enquanto.hist
+    puts Monitoramento.new().hist
   when "Help"
-    puts "Stop:   Stop Monitorament;"
-    puts "Hist:   Exib the historic of datag users;"
-    puts "Getout: Exit the console;"
-    puts "Startm: Start monitorament.\n"
+    puts "Stop:   Stop Monitorament;",
+         "Hist:   Exib the historic of datag users;",
+         "Getout: Exit the console;",
+         "Startm: Start monitorament.\n"
   when "Stop"
     if thefirst.status != (false || "dead")
       thefirst.kill
-      print "Monitoramento desligado\n"
+      print "\nMonitoramento desligado\n"
     else
       puts "\nThe monirorament is dead.\n"
     end
 
   when "Getout"
-    system 'cls'
-    sysuser =+ 1
+    system 'cls'#MS-DOS
+    running = false
   when "Startm"
     print "\nMonitoramento iniciado:\n"
-    thefirst
+    thefirst # Initialize Thread with Monitorament
   else
     puts " - '#{user}' is not a function."
   end
