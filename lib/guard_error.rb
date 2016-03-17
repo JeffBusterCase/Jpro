@@ -9,7 +9,7 @@ def guard_error (option="no")
   end
 
   $error_name = "error_" << rand(100).to_s << " " << rand(100).to_s << otnm
-  file_error_name2 = ("./lib/erros/" << $error_name << ".txt")
+  file_error_name2 = ("../lib/erros/" << $error_name << ".txt")
   grand = File.new(file_error_name2, "w")
   grand.close
   File.open(file_error_name2, "w") do |file|
