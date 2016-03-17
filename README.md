@@ -2,7 +2,7 @@
 
 
 <h4> DataG version 2.0.34</h4>
-
+<p>Windows<code>(DOS)</code> Version</p>
 <h5>How to Run</h5>
 Initialize by the <code>dataG.bat</code><br>
 but also do if your ruby are >= 2.0.0 or you are not using RailsInstaller ( The <u>.lnk</u> follow this too! ) by the <code>datag.rb</code> .
