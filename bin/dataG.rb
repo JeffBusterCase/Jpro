@@ -21,7 +21,7 @@ require 'yaml'
 require '../lib/organizer'
 
 #initialize the system OS
-# Change the value inside the '' to another Operational System if you want
+# Change the value inside the '()' in config/config.txt )
 $os = OS.new(Config.load('OperationalSystem'))
 
 #Send status of users?
