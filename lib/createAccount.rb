@@ -29,21 +29,21 @@ def create
 
 
 
-  def gdata (name=".\\Accounts\\#{$user.capitalize}\\dados da conta\\#{$user.capitalize}.yml", mode="w")
+  def gdata (name="../Accounts/#{$user.capitalize}/dados da conta/#{$user.capitalize}.yml", mode="w")
 
 # Deck de pastas para as contas
 
-	Dir.mkdir(".\\Accounts\\#{$user.capitalize}")
+	Dir.mkdir("../Accounts/#{$user.capitalize}")
 
-	Dir.mkdir(".\\Accounts\\#{$user.capitalize}\\textos")
-	Dir.mkdir(".\\Accounts\\#{$user.capitalize}\\textos\\enviados")
-	Dir.mkdir(".\\Accounts\\#{$user.capitalize}\\textos\\guardados")
-	Dir.mkdir(".\\Accounts\\#{$user.capitalize}\\textos\\rascunhos")
+	Dir.mkdir("../Accounts/#{$user.capitalize}/textos")
+	Dir.mkdir("../Accounts/#{$user.capitalize}/textos/enviados")
+	Dir.mkdir("../Accounts/#{$user.capitalize}/textos/guardados")
+	Dir.mkdir("../Accounts/#{$user.capitalize}/textos/rascunhos")
 
 
-	Dir.mkdir(".\\Accounts\\#{$user.capitalize}\\caixa de entrada")
-	Dir.mkdir(".\\Accounts\\#{$user.capitalize}\\config")
-	Dir.mkdir(".\\Accounts\\#{$user.capitalize}\\dados da conta")
+	Dir.mkdir("../Accounts/#{$user.capitalize}/caixa de entrada")
+	Dir.mkdir("../Accounts/#{$user.capitalize}/config")
+	Dir.mkdir("../Accounts/#{$user.capitalize}/dados da conta")
 
 	file = File.new(name, mode)
   file.close
@@ -60,12 +60,12 @@ def create
     gdata
     $gdata =false
   end
-  system 'cls'
+  $os.clear
   7.times {puts ""}
   puts "             |   |   |   |    Conta criada com sucesso! |   |   |   |"
   sleep 4
   gets.chomp
-  system 'cls'
+  $os.clear
   $onlyHere = true
   while $onlyHere
     enter

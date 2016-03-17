@@ -1,0 +1,5 @@
+2016-03-17 16:19:04 +0000
+
+No such file or directory @ rb_sysopen - ./Accounts/Jeff/textos/guardados/.dgtxt
+["/home/ubuntu/workspace/lib/Datag_class.rb:129:in `initialize'", "/home/ubuntu/workspace/lib/Datag_class.rb:129:in `open'", "/home/ubuntu/workspace/lib/Datag_class.rb:129:in `return_the_txt'", "/home/ubuntu/workspace/lib/readTxt.rb:14:in `readTxt'", "/home/ubuntu/workspace/lib/DG_MAIN.rb:55:in `enter'", "dataG.rb:71:in `<main>'"]
+No such file or directory @ rb_sysopen - ./Accounts/Jeff/textos/guardados/.dgtxt

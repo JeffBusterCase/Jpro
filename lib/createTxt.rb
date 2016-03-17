@@ -3,7 +3,7 @@ def createTxt database
   $criadortext = true
   $doom = 5
   while $criadortext
-    system 'cls'
+    $os.clear
 
 
     3.times {puts ""}
@@ -23,11 +23,11 @@ def createTxt database
     $text_name.capitalize!
     file_of_text = "\n #{$text_name} \n  #{$lines}"
     database.add_new_txt($text_name, file_of_text)
-    system 'cls'
+    $os.clear
     5.times{puts ""}
     puts "                        Texto salvo com sucesso"
     bb = gets.chomp
-    system 'cls'
+    $os.clear
     $criadortext = false
   end
 end

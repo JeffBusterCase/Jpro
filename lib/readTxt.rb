@@ -1,5 +1,5 @@
 def readTxt database
-  system 'cls'
+  $os.clear
   database.return_arr_txts.each { |text|
   puts "                                  #{text}"
   }
@@ -9,24 +9,24 @@ def readTxt database
   begin
     yul = true
     while yul
-      system 'cls'
+      $os.clear
       puts "type 'b' for back\n\n\n\n"
       puts database.return_the_txt(lll).to_s + "\n\n"
       g = gets.chomp
       if g == 'b' || 'B'
-        system 'cls'
+        $os.clear
         yul = false
       else
-        system 'cls'
+        $os.clear
       end
     end
   rescue
     guard_error "s"
-    system 'cls'
+    $os.clear
     5.times {puts ""}
     puts fred("'#{lll}' ainda não existe.")
     temp = gets.chomp
-    system 'cls'
+    $os.clear
     $forEnter = false
     $enter = false
   end
