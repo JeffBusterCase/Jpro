@@ -71,12 +71,12 @@ class DataAcc
 
   # retornar a senha
   def password_return
-	 return  @@real_arr[1] #senha
+	 @@real_arr[1] #senha
   end
 
   # retornar o nome
   def name_return
-    return @@real_arr[0] #nome da conta
+    @@real_arr[0] #nome da conta
   end
 
   #retornar nomes dos textos que tem na caixa
@@ -114,6 +114,7 @@ class DataAcc
       sleep 0.70
       @doc["doc"] << $new_txt_name
     ensure
+      sleep 0.1
       if ( @doc["doc"].include? $new_txt_name ) == false
         @doc["doc"] << $new_txt_name
       end
@@ -125,11 +126,36 @@ class DataAcc
 
   #retornar o texto selecionado
   def return_the_txt(text_selected_named)
-    all_texto_letters = YAML.load(File.open(".\\Accounts\\" + name_return + "\\textos\\guardados\\" + text_selected_named.to_s + ".dgtxt"))
-    return all_texto_letters
+    YAML.load(File.open(".\\Accounts\\" + name_return + "\\textos\\guardados\\" + text_selected_named.to_s + ".dgtxt"))
   end
 
   #deletar textos
+
+
+
+  def backGroundColor= color
+    @@info_past[4]["fund_color"] = color
+    File.open(@@file_socket, "w") do |file|
+      file.puts YAML.dump(@@info_past)
+    end
+  end
+
+  def loadBackGround
+    system "color #{backGroundColor}9"
+  end
+
+  def backGroundColor
+    case @@info_past[4]["fund_color"]
+    when 'blue'
+      return "1"
+    when 'yellow'
+      return "E"
+    when 'green'
+      return "2"
+    end
+  end
+
+
 end
 
 =begin
