@@ -1,0 +1,31 @@
+sendInformation(OFF) is geting errors wen set to on
+OperationalSystem(win) your operational System of course. (win or mac or linux or whatever)
+Test(ON)
+
+
+
+
+
+
+
+# # # # # # # # # # # # # #
+Example:
+
+    var1(on)
+    var2(OFF)
+    var3(true)
+    var4(false)
+    var5(win)
+
+* variables be behind the '#' (Is not for all)
+* boolean values of variables must be true & false or on & off
+* the values systax are not case sensitive. Example: (on) is the same as (ON) 
+* you van write variable wherever you want, but the systax need to be correct
+
+
+
+
+Hacked by Jefferson Bomfim (jeffbustercase) in 17/03/2016 at 15:05
+
+hackBy(jefferson_bomfim)
+hackByTag(jeffbustercase)
