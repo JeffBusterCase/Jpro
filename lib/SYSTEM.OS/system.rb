@@ -18,7 +18,7 @@ end
 =end
 
 module Config
-    CONFIG_PATH = "../config/config.txt"
+    CONFIG_PATH = "../config/config"
     def self.load variableName
         config_file = File.read CONFIG_PATH
         

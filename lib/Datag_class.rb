@@ -126,7 +126,7 @@ class DataAcc
 
   #retornar o texto selecionado
   def return_the_txt(text_selected_named)
-    YAML.load(File.open("./Accounts/" + name_return + "/textos/guardados/" + text_selected_named.to_s + ".dgtxt"))
+    YAML.load(File.open("../Accounts/" + name_return + "/textos/guardados/" + text_selected_named.to_s + ".dgtxt"))
   end
 
   #deletar textos

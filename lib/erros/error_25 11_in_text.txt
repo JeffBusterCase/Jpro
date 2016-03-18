@@ -1,5 +1,0 @@
-2016-03-17 16:04:46 +0000
-
-undefined method `[]' for nil:NilClass
-["/home/ubuntu/workspace/organizer.rb:20:in `send_information'", "/home/ubuntu/workspace/lib/DG_MAIN.rb:35:in `enter'", "dataG.rb:68:in `<main>'"]
-undefined method `[]' for nil:NilClass
