@@ -1,6 +1,6 @@
 sendInformation(OFF) is geting errors wen set to on
-OperationalSystem(win) your operational System of course. (win or mac or linux or whatever)
-Test(ON)
+OperationalSystem(LINUX) your operational System of course. (win or mac or linux or whatever)
+test(on)
 
 
 

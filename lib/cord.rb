@@ -2,7 +2,7 @@
 
 
 
-require '.\\cortez.rb'
+require './cortez.rb'
 
 
 puts "[#{red("vermelho")}]"
@@ -15,19 +15,19 @@ puts "[#{wa("ativa o modo brilho")}]"
 puts "[#{sbl("Sublinhado")}]"
 puts "[#{psp("pisca pisca")}]"
 puts "[#{trc("troca a cor do primeiro plano pela cor de fundo")}]"
-puts "[#{spy("Isso não pode aparecer")}]"
+puts "[#{spy("Isso nï¿½o pode aparecer")}]"
 puts "[#{green("verde")}]"
 puts "[#{black("preto")}]"
 puts "[#{mag("Rosa")}]"
 puts "[#{cian("ciano")}]"
 puts "[#{whi("branco")}]"
-puts "[#{pad("texto na cor padrão")}]"
+puts "[#{pad("texto na cor padrï¿½o")}]"
 puts "[#{fblack("fundo preto")}]"
 puts "[#{fred("fundo vermelho")}]"
 puts "[#{fgreen("fundo verde")}]"
 puts "[#{fmag("fundo rosa magenta")}]"
 puts "[#{fcian("fundo ciano")}]"
 puts "[#{fw("fundo branco")}]"
-puts "[#{fpad("fundo padrão")}]"
+puts "[#{fpad("fundo padrï¿½o")}]"
 
 sleep 100

@@ -27,7 +27,7 @@ class DataAcc
 
     @@time_cep2 = ( File.expand_path(File.dirname(__FILE__)) ).to_s.match /(.*?)lib/
     @@time_cep2 = @@time_cep2[1]
-    @@file_socket = "#{@@time_cep2}\\Accounts\\" + $nome_da_conta + "\\dados da conta\\" + $nome_da_conta + ".yml"
+    @@file_socket = "#{@@time_cep2}/Accounts/" + $nome_da_conta + "/dados da conta/" + $nome_da_conta + ".yml"
 
     #para password e account name
 
@@ -101,11 +101,11 @@ class DataAcc
 
 
 
-    file = File.new(((@this_here + "\\Accounts\\" + name_return + "\\textos\\guardados\\" + $new_txt_name + ".dgtxt").to_s), "w")
+    file = File.new(((@this_here + "/Accounts/" + name_return + "/textos/guardados/" + $new_txt_name + ".dgtxt").to_s), "w")
     file.close
 
 
-    File.open((@this_here + "\\Accounts\\" + name_return + "\\textos\\guardados\\" + $new_txt_name + ".dgtxt"), "w") do |file|
+    File.open((@this_here + "/Accounts/" + name_return + "/textos/guardados/" + $new_txt_name + ".dgtxt"), "w") do |file|
       file << @really_text
     end
     begin
@@ -126,7 +126,7 @@ class DataAcc
 
   #retornar o texto selecionado
   def return_the_txt(text_selected_named)
-    YAML.load(File.open(".\\Accounts\\" + name_return + "\\textos\\guardados\\" + text_selected_named.to_s + ".dgtxt"))
+    YAML.load(File.open("./Accounts/" + name_return + "/textos/guardados/" + text_selected_named.to_s + ".dgtxt"))
   end
 
   #deletar textos
@@ -162,7 +162,7 @@ end
                 Example:
 
 
-				conta_now = DataAcc.new(".\\example.yml")
+				conta_now = DataAcc.new("./example.yml")
         senha = conta_now.password_return <!-- retorna senha
 	     nome = conta_now.name_return <!-- retorna nome
 

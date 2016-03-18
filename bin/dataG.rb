@@ -21,7 +21,11 @@ require 'yaml'
 require '../lib/organizer'
 
 #initialize the system OS
+<<<<<<< HEAD:bin/dataG.rb
 # Change the value inside the '' to another Operational System if you want
+=======
+# Change the value inside the '()' in config/config.txt )
+>>>>>>> 776e0976e427e0816f624757898e74c88060a183:bin/dataG.rb
 $os = OS.new(Config.load('OperationalSystem'))
 
 #Send status of users?
