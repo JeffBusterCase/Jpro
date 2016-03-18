@@ -20,9 +20,9 @@ def enter
     if ($acc || $pass) === "Sair"
       $enter = false
       $forEnter = false
-    elsif  ('./Accounts/' + $acc.capitalize + '.yml').is_a? String
+    elsif  ('../Accounts/' + $acc.capitalize + '.yml').is_a? String
       begin
-	      $acc_database = './Accounts/' + $acc.capitalize + '/dados da conta/' + $acc.capitalize + '.yml'
+	      $acc_database = '../Accounts/' + $acc.capitalize + '/dados da conta/' + $acc.capitalize + '.yml'
           database = DataAcc.new($acc.capitalize.to_s)
           pw_data = database.password_return.to_s
 		      acc_data = database.name_return.to_s

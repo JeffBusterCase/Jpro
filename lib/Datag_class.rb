@@ -16,7 +16,7 @@ require 'yaml'
 
 
 class DataAcc
-
+  attr_accessor :userExist
 
   def initialize(file_name)
     @@file_name = file_name
@@ -29,16 +29,20 @@ class DataAcc
     @@time_cep2 = @@time_cep2[1]
     @@file_socket = "#{@@time_cep2}/Accounts/" + $nome_da_conta + "/dados da conta/" + $nome_da_conta + ".yml"
 
-    #para password e account name
+    if File.exist? @@file_socket
+      
+      @userExist = true
+      @@info_past = YAML.load(File.open(@@file_socket))
 
-    @@info_past = YAML.load(File.open(@@file_socket))
+      @arr = []
 
-    @arr = []
-
-    @@info_past[0].each do |name|
-      @arr << name[1]
+      @@info_past[0].each do |name|
+        @arr << name[1]
+      end
+      @@real_arr = @arr[0]
+    else 
+      @userExist = false
     end
-    @@real_arr = @arr[0]
   end
 
   def change(cep, new_value)

@@ -4,6 +4,8 @@ require "../lib/Datag_class"
 
 require "../lib/DG_MAIN"
 
+require '../lib/Session'
+
 require "../lib/guard_error"
 
 require "../lib/createTxt"
