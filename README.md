@@ -11,7 +11,7 @@ In the terminal run:
 bin/$ ruby datag.rb
 ```
 <p>May need to reconfig, to run freely in a different operation system</p>
-<p>In <code>config/config.txt</code> </p>
+<p>In <code>config/config</code> </p>
 change the '<code>value</code>' of: 
 ```
 OperationalSystem(value)
