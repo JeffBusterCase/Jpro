@@ -27,6 +27,6 @@ OperationalSystem(win)
   To monitorate the users use the <code>bin/dgm.rb</code><br>
 
 <h6> Why Jpro?</h6>
-    Jpro is a pack of programs, by example, the <code>dataG</code> is in.
+    Jpro is a pack of programs, by example, the ```dataG``` is in.
 
 <h2>Thanks for the clone!</h2>
