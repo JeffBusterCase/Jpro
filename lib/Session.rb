@@ -6,8 +6,8 @@ class Session
     attr_reader :status
     def initialize(user)
         @user = DataAcc.new(user)
-        @login = user.name_return
-        @password = user.password_return
+        @login = @user.name_return
+        @password = @user.password_return
         @status = nil
     end
 
@@ -15,7 +15,7 @@ class Session
         loadUserBackGround
         @status = true
         while @status
-            self.mainThreadSession
+            mainThreadSession
             $os.clear
         end
     end
@@ -34,10 +34,10 @@ class Session
         @user.loadBackGround
         send_information(@login) if $canAlert
         
-        puts "                   #{fblue("   ")} Write #{red('end')} para sair                     #{fblue("   ")}"
-        puts "                   #{fblue("   ")} Write #{whi('ctext')} para Criar um texto         #{fblue("   ")}"
-        puts "                   #{fblue("   ")} Write #{whi('read')} para ler um texto            #{fblue("   ")}"
-        puts "                   #{fblue("   ")} Write #{whi('backGroundColor')} or #{whi('bGC')}            #{fblue("   ")}"
+        puts "                   #{fblue("   ")} Write #{red('end')} para sair                     #{fblue("   ")}",
+             "                   #{fblue("   ")} Write #{whi('ctext')} para Criar um texto         #{fblue("   ")}",
+             "                   #{fblue("   ")} Write #{whi('read')} para ler um texto            #{fblue("   ")}",
+             "                   #{fblue("   ")} Write #{whi('backGroundColor')} or #{whi('bGC')}            #{fblue("   ")}"
         7.times {puts ""}
         puts "               Entrou como #{whi(@login)}."
         sleep 0.005
@@ -60,7 +60,7 @@ class Session
             while $tempForBackColor
                 $os.clear
                 2.times {puts ""}
-                puts "colors: blue, yellow or green.",
+                puts "colors: \n --blue, \n--yellow \n--green.",
                      ""
                 userColorAnsw = gets.chomp
                 case userColorAnsw.capitalize

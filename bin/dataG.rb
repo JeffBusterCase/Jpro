@@ -1,12 +1,14 @@
-﻿# encoding: UTF-8
+# encoding: UTF-8
 
 require "../lib/Datag_class"
 
-require "../lib/DG_MAIN"
+require "../lib/DG_MAIN2"
 
 require '../lib/Session'
 
 require "../lib/guard_error"
+
+require '../lib/SYSTEM.OS/CONSTANTS'
 
 require "../lib/createTxt"
 
@@ -41,6 +43,10 @@ $t = true
 
 
 ##^^^^^^
+
+#--Constants for error log
+include Error_Labels
+
 
 system 'color f9'#MS-DOS
 $os.clear#clear the terminal
@@ -77,22 +83,7 @@ while $t
       rescue
 
         $os.clear
-        8.times {puts ''}
-		    $error_name = "error_" << rand(100).to_s << " " << rand(100).to_s
-        file_error_name = ("../lib/erros/" << $error_name << ".txt")
-        grand = File.new(file_error_name, "w")
-	      grand.close
-
-	       File.open(file_error_name, "w") do |file|
-		       file << Time.now.to_s << "\n\n"
-           file << $!
-		       file << "\n"
-		       file << $!.backtrace
-		       file << "\n"
-		       file <<  $!.message
-		     end
-        puts ("                     grande erro: " + $error_name),
-              "\n                            Sua conta deve ser invalida!"
+        guard_error BIN_ERROR, true
         sleep 2
         $os.clear
       end
@@ -100,9 +91,13 @@ while $t
     end
   when "Criar"
     $os.clear
-    loop do
-      create
-      break
+    begin
+      loop do
+        create
+        break
+      end
+    rescue
+      guard_error NEW_ACCOUNT_ERROR, true
     end
   when "Sair"
     $os.clear

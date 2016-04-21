@@ -25,7 +25,7 @@ class DataAcc
     $file_name2 = @@file_name
     $nome_da_conta = $file_name2
 
-    @@time_cep2 = ( File.expand_path(File.dirname(__FILE__)) ).to_s.match /(.*?)lib/
+    @@time_cep2 = ( File.expand_path(File.dirname(__FILE__)) ).to_s.match(/(.*?)lib/)
     @@time_cep2 = @@time_cep2[1]
     @@file_socket = "#{@@time_cep2}/Accounts/" + $nome_da_conta + "/dados da conta/" + $nome_da_conta + ".yml"
 
@@ -47,13 +47,13 @@ class DataAcc
 
   def change(cep, new_value)
     cep_real = cep.to_s.length
-    $file_time = [@@file_name, new_value]
-    def load_and_save(file_nm=$file_time[0])
-      $file_var = File.read(file_nm)
-      $file_array = YAML.load($file_var)
-      $file_array[$temper] = $file_time[1]
+    file_time = [@@file_name, new_value]
+    def load_and_save(file_nm=file_time[0])
+      file_var = File.read(file_nm)
+      file_array = YAML.load(file_var)
+      file_array[$temper] = file_time[1]
       File.open(file_nm, 'w+') do |new_file|
-        new_file.puts YAML.dump($file_array)
+        new_file.puts YAML.dump(file_array)
       end
     end
     if cep_real > 1
@@ -98,7 +98,7 @@ class DataAcc
     @really_text = really_text #já é string
     $new_txt_name = new_txt_name
 
-    @this_here = ( File.expand_path(File.dirname(__FILE__)) ).to_s.match /(.*?)lib/
+    @this_here = ( File.expand_path(File.dirname(__FILE__)) ).to_s.match(/(.*?)lib/)
     @this_here = @this_here[1]
 
     $other_here = $nome_da_conta
@@ -110,7 +110,7 @@ class DataAcc
 
 
     File.open((@this_here + "/Accounts/" + name_return + "/textos/guardados/" + $new_txt_name + ".dgtxt"), "w") do |file|
-      file << @really_text
+      file.puts @really_text
     end
     begin
       @doc["doc"] << $new_txt_name
@@ -130,7 +130,8 @@ class DataAcc
 
   #retornar o texto selecionado
   def return_the_txt(text_selected_named)
-    YAML.load(File.open("../Accounts/" + name_return + "/textos/guardados/" + text_selected_named.to_s + ".dgtxt"))
+    txt_path = ("../Accounts/" + name_return + "/textos/guardados/" + text_selected_named.to_s + ".dgtxt")
+    return (File.exist? txt_path)? YAML.load(File.open(txt_path)) : false 
   end
 
   #deletar textos
