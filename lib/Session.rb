@@ -54,7 +54,10 @@ class Session
         elsif select_tool == "Read"
             readTxt @user
         elsif select_tool == ("Ctext" || "New txt")
+            puts red("start creating text")
+            sleep 1
             createTxt @user
+            sleep 1
         elsif select_tool == ("Backgroundcolor" || "Bgc")
             $tempForBackColor = true
             while $tempForBackColor

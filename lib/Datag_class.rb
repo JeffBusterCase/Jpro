@@ -20,15 +20,15 @@ class DataAcc
 
   def initialize(file_name)
     @@file_name = file_name
+    
 
-
-    $file_name2 = @@file_name
-    $nome_da_conta = $file_name2
+    file_name2 = @@file_name
+    @nome_da_conta = file_name2
 
     @@time_cep2 = ( File.expand_path(File.dirname(__FILE__)) ).to_s.match(/(.*?)lib/)
     @@time_cep2 = @@time_cep2[1]
-    @@file_socket = "#{@@time_cep2}/Accounts/" + $nome_da_conta + "/dados da conta/" + $nome_da_conta + ".yml"
-
+    @@file_socket = ("#{@@time_cep2}/Accounts/#{@nome_da_conta}/dados da conta/#{@nome_da_conta}.yml")
+    puts "Files Socker: #{@@file_socket}" 
     if File.exist? @@file_socket
       
       @userExist = true
@@ -85,6 +85,7 @@ class DataAcc
 
   #retornar nomes dos textos que tem na caixa
   def return_arr_txts
+    IO.write("./DEBUG", "docclass="+@doc.to_s+" andinfoclass= "+@@info_past.class.to_s+"="+@@info_past.to_s)
     @doc = @@info_past[1]
     if @doc["doc"].empty?
       return ["0"]
@@ -96,31 +97,31 @@ class DataAcc
   #adicionar textos
   def add_new_txt(new_txt_name, really_text)
     @really_text = really_text #já é string
-    $new_txt_name = new_txt_name
+    _new_txt_name = new_txt_name
 
     @this_here = ( File.expand_path(File.dirname(__FILE__)) ).to_s.match(/(.*?)lib/)
     @this_here = @this_here[1]
 
-    $other_here = $nome_da_conta
+    _other_here = @nome_da_conta
 
 
 
-    file = File.new(((@this_here + "/Accounts/" + name_return + "/textos/guardados/" + $new_txt_name + ".dgtxt").to_s), "w")
+    file = File.new(((@this_here + "/Accounts/" + name_return + "/textos/guardados/" + _new_txt_name + ".dgtxt").to_s), "w")
     file.close
 
 
-    File.open((@this_here + "/Accounts/" + name_return + "/textos/guardados/" + $new_txt_name + ".dgtxt"), "w") do |file|
+    File.open((@this_here + "/Accounts/" + name_return + "/textos/guardados/" + _new_txt_name + ".dgtxt"), "w") do |file|
       file.puts @really_text
     end
     begin
-      @doc["doc"] << $new_txt_name
+      @doc["doc"] << _new_txt_name
     rescue
       sleep 0.70
-      @doc["doc"] << $new_txt_name
+      @doc["doc"] << _new_txt_name
     ensure
       sleep 0.1
-      if ( @doc["doc"].include? $new_txt_name ) == false
-        @doc["doc"] << $new_txt_name
+      if ( @doc["doc"].include? _new_txt_name ) == false
+        @doc["doc"] << _new_txt_name
       end
     end
     File.open(@@file_socket, "w") do |file|

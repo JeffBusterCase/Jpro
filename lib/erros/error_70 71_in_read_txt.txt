@@ -1,0 +1,13 @@
+2016-04-21 17:34:55 +0000
+
+
+no implicit conversion of Hash into String
+
+
+/home/ubuntu/workspace/lib/Datag_class.rb:89:in `+'
+/home/ubuntu/workspace/lib/Datag_class.rb:89:in `return_arr_txts'
+/home/ubuntu/workspace/lib/readTxt.rb:4:in `readTxt'
+/home/ubuntu/workspace/lib/Session.rb:55:in `mainThreadSession'
+/home/ubuntu/workspace/lib/Session.rb:18:in `start'
+/home/ubuntu/workspace/lib/DG_MAIN2.rb:34:in `enter'
+dataG.rb:83:in `<main>'

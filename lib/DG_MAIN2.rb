@@ -22,7 +22,7 @@ def enter
             puts "                                 Qual  é a sua senha?"
             pass = gets.chomp.to_s
             $os.clear
-            
+            puts "The account given : #{acc}"
             if (acc || pass) === "Sair"
                 $enter = false
                 $forEnter = false
@@ -38,11 +38,11 @@ def enter
                 end
                 $os.clear
             elsif !(DataAcc.new(acc).userExist)
-                $os.clear
+                #$os.clear
                 5.times {puts ""}
                 puts "              invalid account"
                 sleep 2.50
-                $os.clear
+                #$os.clear
             else 
                 puts "Something goes wrong"
                 guard_error SOMETHING_GOES_WRONG, true

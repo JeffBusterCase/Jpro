@@ -24,6 +24,7 @@ require 'yaml'
 
 require '../lib/organizer'
 
+include Error_Labels
 #initialize the system OS
 # Change the value inside the '()' in config/config.txt )
 $os = OS.new(Config.load('OperationalSystem'))

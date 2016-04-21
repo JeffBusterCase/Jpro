@@ -23,7 +23,7 @@ def create
   ]
 
 
-  def gdata (name="../Accounts/#{user.capitalize}/dados da conta/#{user.capitalize}.yml", mode="w")
+  def gdata (user, arr_hist, name="../Accounts/#{user.capitalize}/dados da conta/#{user.capitalize}.yml", mode="w")
 
 # Deck de pastas para as contas
 
@@ -51,7 +51,7 @@ def create
 
   $gdata = true
   while $gdata
-    gdata
+    gdata(user, arr_hist)
     $gdata =false
   end
   $os.clear
@@ -60,10 +60,10 @@ def create
   sleep 4
   gets.chomp
   $os.clear
-  $onlyHere = true
-  while $onlyHere
+  onlyHere = true
+  while onlyHere
     enter
-    $onlyHere = false
+    onlyHere = false
     $gdata = false
     $h -= 1
   end

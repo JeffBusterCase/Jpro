@@ -22,7 +22,7 @@ def guard_error (label=nil, alert=false)
     label = "_something_goes_wrong"
   else
     label = "_undefined_label"
-  end
+  end 
   
   $error_name = "error_" << rand(100).to_s << " " << rand(100).to_s << label
   file_error_name2 = ("../lib/erros/" << $error_name << ".txt")
@@ -42,7 +42,7 @@ def guard_error (label=nil, alert=false)
     $os.clear
     9.times {puts ""}
     puts "                          Erro nº: " + $error_name,
-         "\n\n                                 #{easyMessage(labelr)}",
+         "\n\n                                 #{Error_Labels::easyMessage(labelr)}",
          "Wait 4 seconds...."
     sleep 4
     $os.clear
