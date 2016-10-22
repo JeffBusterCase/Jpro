@@ -1,28 +1,28 @@
 # encoding: UTF-8
 
-require "../lib/Datag_class"
+require_relative "../lib/Datag_class"
 
-require "../lib/DG_MAIN2"
+require_relative "../lib/DG_MAIN2"
 
-require '../lib/Session'
+require_relative '../lib/Session'
 
-require "../lib/guard_error"
+require_relative "../lib/guard_error"
 
-require '../lib/SYSTEM.OS/CONSTANTS'
+require_relative '../lib/SYSTEM.OS/CONSTANTS'
 
-require "../lib/createTxt"
+require_relative "../lib/createTxt"
 
-require "../lib/readTxt"
+require_relative "../lib/readTxt"
 
-require "../lib/createAccount"
+require_relative "../lib/createAccount"
 
-require "../lib/cortez"
+require_relative "../lib/cortez"
 
-require "../lib/SYSTEM.OS/system"
+require_relative "../lib/SYSTEM.OS/system"
 
 require 'yaml'
 
-require '../lib/organizer'
+require_relative '../lib/organizer'
 
 include Error_Labels
 #initialize the system OS
